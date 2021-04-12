@@ -18,6 +18,20 @@
     "stylelint-config-standard": "^21.0.0",
     "stylelint-order": "^4.1.0"
   },
+  "lint-staged": {
+    "*.{js,jsx,css,less,json,md}": [
+      "prettier --write"
+    ],
+    "*.{css,less}": [
+      "stylelint --fix --syntax less"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JimmieMax/web-cooperation-standard.git"
